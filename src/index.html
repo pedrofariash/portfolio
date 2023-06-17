@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portifólio</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+        * {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
+		html, body {
+			height: 100%;
+			scroll-behavior: smooth;
+		}
+
+		body {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.navbar {
+			 -webkit-transition: all 0.4s ease;
+   			transition: all 0.4s ease;
+		}
+
+		.menu li{
+			padding: 10px;
+			height: 50px;
+		}
+
+		.menu li:hover {
+			cursor: pointer;
+			text-shadow: 0px 0px 5px rgb(236 253 245);
+		}
+
+		.listawrap {
+			flex-wrap: wrap;
+		}
+
+		.textblur {
+			text-shadow: 0px 0px 4px rgb(236 253 245);
+		}
+
+		::-webkit-scrollbar {
+            width: 10px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgb(2 44 34);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(6 78 59);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(6 95 70);
+        }
+
+        @media (max-width: 820px) {
+            #menubar {
+                display: none;
+            }
+        }
+
+        @media (max-width: 1111px) {
+            #Apresentacao {
+                flex-direction: column;
+                height: fit-content;
+                min-height: fit-content;
+            }
+            #Apresentacaodiv {
+            	border-right: 0px solid black;
+            	width: 100%;
+            }
+
+            #meusconhecimentos {
+            	width: 100%;
+            }
+
+            #portifoliodiv {
+            	width: 100%;
+            	border-right: 0px solid black;
+            }
+
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-emerald-950 text-emerald-50 font-mono">
+	<div class="navbar bg-gradient-to-b from-emerald-900 to-emerald-950 w-full py-16 px-10 flex flex-row justify-between items-center min-h-[178px] max-h-[178px] mb-4">
+		<h2 class="text-3xl textblur">Pedro Farias</h2>
+		<ul id="menubar" class="flex flex-row menu text-xl">
+			<li><a href="#Portifolio">Portifólio</a></li>
+			<li><a href="#Contato">Contato</a></li>
+		</ul>
+	</div>
+
+	<section id="Apresentacao" class="flex flex-row text-lg w-[100%] min-h-screen">
+		<div id="Apresentacaodiv" class="p-10 w-[50%] h-min border-r border-emerald-50 mr-4">
+			<h1 class="textblur text-4xl mb-2">Apresentação</h1>
+			<p>
+				Esse é o meu portifólio como programador, onde estarei registrando meus projetos e idéias ao decorrer do meu aprendizado. Estudo programação desde 2017 e apesar da minha caminhada ter sido despretensiosa, adquiri conhecimento base para evoluir mais daqui pra frente.
+			</p>
+		</div>
+		<div id="meusconhecimentos" class="p-10 w-[50%]">
+			<h2 class="textblur text-3xl mb-2">Meus conhecimentos</h2>
+			<ul class="listawrap w-full list-disc flex flex-row lista">
+				<li class="mr-9 mb-9">
+					Front-end
+					<ul>
+						<li>HTML</li>
+						<li>JS</li>
+						<li>CSS</li>
+						<li>Responsividade</li>
+					</ul>
+				</li>
+				<li class="mr-9">
+					Back-end
+					<ul>
+						<li>Node JS</li>
+						<li>MongoDB</li>
+						<li>MySQL</li>
+					</ul>
+				</li>
+				<li class="mr-9">
+					Mobile
+					<ul>
+						<li>Java</li>
+						<li>XML</li>
+					</ul>
+				</li>
+				<ul>
+					<li><img src="img/java.png" width="100px" height="100px"></li>
+					<li><img src="img/Python.png" width="100px" height="100px"></li>
+					<li><img src="img/C++.png" width="100px" height="100px"></li>
+				</ul>
+			</ul>
+		</div>
+	</section>
+
+	<section id="Portifolio" class="bg-[#011a14] flex flex-row text-lg min-h-screen items-center">
+		<div class="w-full flex flex-row">
+			<div id="portifoliodiv" class="p-10 h-min w-[50%] border-r border-emerald-50 mr-4 mt-4">
+				<h1 class="textblur text-4xl mb-2">Portifólio</h1>
+				<ul class="menu">
+					<li onclick="changeItem(0)">Sky's Bar</li>
+					<li onclick="changeItem(1)">Tail Wind Test</li>
+					<li onclick="changeItem(2)">Grid Test</li>
+					<li onclick="changeItem(3)">Login UI</li>
+					<li onclick="changeItem(4)">Página de loja</li>
+				</ul>
+			</div>
+
+			<div class="p-10 h-full w-[50%] justify-center">
+				<img src="" id="selected-image" width="371px" height="205px" class="mb-7 shadow-md shadow-emerald-50">
+				<h1 id="selected-name" class="textblur text-4xl mb-4"></h1>
+				<p id="selected-desc" class="mb-4"></p>
+				<button class="px-4 py-2 bg-emerald-300 hover:bg-emerald-400 active:bg-emerald-500 rounded-full text-emerald-900"><a id="selected-view" href=""><b>VISUALIZAR</b></a></button>
+			</div>
+		</div>
+	</section>
+
+	<section id="Contato" class="bg-emerald-950 text-lg flex flex-row">
+		<div class="flex flex-col w-full h-[500px] p-9 justify-center items-center">
+			<button class="px-4 py-2 mb-4 bg-emerald-300 hover:bg-emerald-400 active:bg-emerald-500 rounded-full text-emerald-900"><a href="https://github.com/pedrofariash"><b>GitHub</b></a></button>
+			<b>phfarias005@gmail.com</b>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+		const selectedname = document.getElementById("selected-name")
+		const selectedimage = document.getElementById("selected-image")
+		const selecteddesc = document.getElementById("selected-desc")
+		const selectedview = document.getElementById("selected-view")
+
+		const items = [{
+			name: "Sky's Bar", image: "img/skysbar.png", desc: "Um projeto de interface mais completo, apenas envolvendo a página principal porém incluindo diversos elementos que não havia incluido nos outros projetos.", link: "https://pedrofariash.github.io/skysbar/src/index.html"
+		},
+		{
+			name: "Tail Wind Test", image: "img/swt.png", desc: "Meu primeiro projeto teste utilizando tailwindcss.", link: "https://pedrofariash.github.io/sitewithtailwind/"
+		},
+		{
+			name: "Grid Test", image: "img/gridtest.png", desc: "Um projeto de visualização da utilização do layout grid.", link: "https://pedrofariash.github.io/htmlgridtest/"
+		},
+		{
+			name: "Login UI", image: "img/loginui.png", desc: "Uma página funcional de login, implementando Node e Mongodb no back-end.", link: "https://pedrofariash.github.io/loginui/"
+		},
+		{
+			name: "Página de loja", image: "img/paginaloja.png", desc: "Meu primeiro projeto de uma página inicial de loja virtual.", link: "https://pedrofariash.github.io/paginadeloja/"
+		}]
+
+		selectedname.innerHTML = items[0].name
+		selectedimage.src = items[0].image
+		selecteddesc.innerHTML = items[0].desc
+		selectedview.href = items[0].link
+
+		function changeItem(number) {
+			selectedname.innerHTML = items[number].name
+			selectedimage.src = items[number].image
+			selecteddesc.innerHTML = items[number].desc
+			selectedview.href = items[number].link
+		}
+	</script>
+</body>
+</html>
